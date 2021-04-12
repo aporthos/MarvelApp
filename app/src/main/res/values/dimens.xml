@@ -1,0 +1,13 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="common_dimen_0dp">0dp</dimen>
+    <dimen name="common_dimen_1dp">1dp</dimen>
+    <dimen name="common_dimen_8dp">8dp</dimen>
+    <dimen name="common_dimen_5dp">5dp</dimen>
+    <dimen name="common_dimen_16dp">16dp</dimen>
+    <dimen name="common_dimen_24dp">24dp</dimen>
+    <dimen name="common_dimen_200dp">200dp</dimen>
+    <dimen name="common_dimen_90dp">90dp</dimen>
+    <dimen name="common_dimen_82dp">82dp</dimen>
+    <dimen name="common_dimen_278dp">278dp</dimen>
+</resources>

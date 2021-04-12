@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.globant.marvelapp.ui.characters.detail.CharacterDetailViewModel" />
+
+        <variable
+            name="character"
+            type="com.globant.domain.model.CharactersDto" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.characters.detail.CharacterDetailFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_dimen_278dp"
+            android:fitsSystemWindows="false"
+            android:theme="@style/Theme.MarvelApp.AppBarOverlay">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:title="@{character.name}">
+
+                <ImageView
+                    android:id="@+id/characterImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common_dimen_278dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="centerCrop"
+                    app:imageUrl="@{character.imageurl}"
+                    app:layout_collapseMode="parallax"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:menu="@menu/menu_character_detail" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <include
+            layout="@layout/content_character_detail"
+            bind:character="@{character}"
+            bind:viewModel="@{viewModel}" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

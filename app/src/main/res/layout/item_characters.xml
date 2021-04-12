@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.globant.domain.model.CharactersDto" />
+
+        <variable
+            name="listener"
+            type="com.globant.shared.interfaces.OnClickListener" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkable="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{(v) -> listener.onClicked(v, item)}"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/characterImageView"
+                android:layout_width="@dimen/common_dimen_200dp"
+                android:layout_height="@dimen/common_dimen_200dp"
+                android:contentDescription="@string/app_name"
+                app:imageUrl="@{item.imageurl}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="@dimen/common_dimen_0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/red_opacity"
+                android:maxLines="1"
+                android:padding="@dimen/common_dimen_5dp"
+                android:text="@{item.name}"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/characterImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Ironman" />
+
+            <ImageView
+                android:id="@+id/favouriteImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/app_name"
+                android:onClick="@{(v) -> listener.onChecked(v, item)}"
+                android:padding="@dimen/common_dimen_8dp"
+                android:src="@{item.favourite ? @drawable/favourite_checked : @drawable/favourite_unchecked}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

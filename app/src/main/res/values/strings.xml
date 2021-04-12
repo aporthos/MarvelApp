@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">MarvelApp</string>
+    <string name="action_save_favourite">Guardar</string>
+    <string name="action_order">Ordenar</string>
+    <string name="action_search">Buscar</string>
+    <string name="character_detail_fragment_label">Detalle del Personaje</string>
+
+    <string name="character_detail_fragment_label_comics">COMICS</string>
+    <string name="character_detail_fragment_label_series">SERIES</string>
+    <string name="character_detail_fragment_label_events">EVENTOS</string>
+    <string name="character_detail_fragment_label_stories">CUENTOS</string>
+    <string name="character_detail_fragment_label_description_empty">Sin descripcion</string>
+    <string name="character_fragment_label">Mis Personajes</string>
+    <string name="favourites_fragment_label">Mis favoritos</string>
+    <string name="favourites_fragment_label_empty">Aun no tienes favoritos, agrega unos cuantos :)</string>
+    <string name="character_fragment_label_message_not_found">No hay resultados para tu busqueda</string>
+    <string name="character_fragment_label_error">Ocurrio un error al recuperar los datos</string>
+    <string name="message_invalid_credential">Las credenciales no son validas</string>
+    <string name="message_invalid_missing_parameter">Faltan parametros por agregar</string>
+    <string name="message_no_internet">No estas conectado a Internet, cargando localmente…</string>
+    <string name="character_detail_fragment_id_invalid">No se encontro al personaje</string>
+    <string name="character_detail_fragment_json_invalid">La respuesta del servicio es incorrecta</string>
+    <string name="message_load_characters">Cargando a tu personajes...</string>
+    <string name="message_error_unknow">Ocurrio un error, intenta mas tarde</string>
+    <string name="message_characters_not_found">No se encontraron resultados</string>
+    <string name="message_empty" />
+
+    <string name="message_link_invalid">En enlace no es valido</string>
+</resources>

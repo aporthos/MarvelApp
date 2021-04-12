@@ -1,0 +1,123 @@
+ext {
+    def versions = [:]
+    versions.kotlin = '1.4.30'
+    versions.gradle = '4.1.3'
+    versions.safe_args = '2.3.4'
+    versions.dagger_hilt = '2.31.2-alpha'
+    versions.navigation = '2.3.4'
+    versions.hilt_android = '2.28-alpha'
+    versions.hilt_viewmodel = '1.0.0-alpha01'
+    versions.android_compiler = '2.28-alpha'
+    versions.hilt_compiler = '1.0.0-alpha01'
+    versions.livedata = '2.3.1'
+    versions.timber = '4.7.1'
+    versions.retrofit = '2.9.0'
+    versions.interceptor = '4.7.2'
+    versions.picasso = '2.71828'
+    versions.room = '2.2.6'
+    versions.paging = '2.1.2'
+    versions.coroutines = '1.4.2'
+    versions.junit = '4.13.2'
+    versions.mockito_inline = '2.23.4'
+    versions.mockito_kotlin = '2.2.11'
+    versions.core_testing = '2.1.0'
+    versions.coroutines_test = '1.4.1'
+    versions.coroutines_core = '1.4.2'
+    versions.core_ktx = '1.3.2'
+    versions.appcompat = '1.2.0'
+    versions.material = '1.3.0'
+    versions.constraint = '2.0.4'
+    versions.legacy = '1.0.0'
+    versions.lottie = '3.4.1'
+
+    core_android = [
+            core_ktx  : "androidx.core:core-ktx:${versions.core_ktx}",
+            appcompat : "androidx.appcompat:appcompat:${versions.appcompat}",
+            material  : "com.google.android.material:material:${versions.material}",
+            constraint: "androidx.constraintlayout:constraintlayout:${versions.constraint}",
+    ]
+
+    legacy = [
+            legacy: "androidx.legacy:legacy-support-v4:${versions.legacy}"
+    ]
+
+    classPath = [
+            gradle       : "com.android.tools.build:gradle:${versions.gradle}",
+            kotlin_gradle: "org.jetbrains.kotlin:kotlin-gradle-plugin:{$versions.kotlin}",
+            safe_args    : "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.safe_args}",
+            hilt_gradle  : "com.google.dagger:hilt-android-gradle-plugin:${versions.dagger_hilt}"
+    ]
+
+
+    kotlin_stdlib = [
+            kotlin_stdlib: "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
+    ]
+
+    navigation = [
+            fragment: "androidx.navigation:navigation-fragment-ktx:${versions.navigation}",
+            ui      : "androidx.navigation:navigation-ui-ktx:${versions.navigation}"
+    ]
+
+    hilt_android = [
+            android  : "com.google.dagger:hilt-android:${versions.hilt_android}",
+            viewmodel: "androidx.hilt:hilt-lifecycle-viewmodel:${versions.hilt_viewmodel}"
+    ]
+
+    hilt_kapt = [
+            android  : "com.google.dagger:hilt-android-compiler:${versions.android_compiler}",
+            viewmodel: "androidx.hilt:hilt-compiler:${versions.hilt_compiler}"
+    ]
+
+    lifecycle = [
+            livedata : "androidx.lifecycle:lifecycle-livedata-ktx:${versions.livedata}",
+            viewmodel: "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.livedata}"
+    ]
+
+    timber = [
+            timber: "com.jakewharton.timber:timber:${versions.timber}"
+    ]
+
+    retrofit = [
+            retrofit: "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+            gson    : "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+    ]
+
+    interceptor = [
+            interceptor: "com.squareup.okhttp3:logging-interceptor:${versions.interceptor}"
+    ]
+
+    picasso = [
+            picasso: "com.squareup.picasso:picasso:${versions.picasso}"
+    ]
+
+    room = [
+            room: "androidx.room:room-runtime:${versions.room}",
+            ktx : "androidx.room:room-ktx:${versions.room}",
+    ]
+
+    room_kapt = [
+            room: "androidx.room:room-compiler:${versions.room}"
+    ]
+
+    paging = [
+            paging: "androidx.paging:paging-runtime-ktx:${versions.paging}"
+    ]
+
+    coroutines = [
+            coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
+    ]
+
+    tests = [
+            junit         : "junit:junit:${versions.junit}",
+            mockito_inline: "org.mockito:mockito-inline:${versions.mockito_inline}",
+            mockito_kotlin: "org.mockito.kotlin:mockito-kotlin:${versions.mockito_kotlin}",
+            core          : "androidx.arch.core:core-testing:${versions.core_testing}",
+            corotines_test: "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.coroutines_test}",
+            corotines_core: "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines_core}"
+    ]
+
+    lottie = [
+            lottie: "com.airbnb.android:lottie:${versions.lottie}"
+    ]
+
+}

@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.globant.marvelapp.ui.main.MainActivity">
+
+    <item android:id="@+id/action_search"
+        android:title="@string/action_search"
+        android:icon="@drawable/search"
+        app:showAsAction="collapseActionView|ifRoom"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+
+    <item
+        android:id="@+id/action_order"
+        android:icon="@drawable/ascending"
+        android:title="@string/action_order"
+        app:showAsAction="always" />
+</menu>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/fragment_character_detail">
+
+    <data>
+
+        <import type="com.globant.shared.utils.extensions.IntExtensionsKt" />
+
+        <variable
+            name="character"
+            type="com.globant.domain.model.CharactersDto" />
+
+        <variable
+            name="viewModel"
+            type="com.globant.marvelapp.ui.characters.detail.CharacterDetailViewModel" />
+
+    </data>
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/charactersSwipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar"
+        app:onRefreshListener="@{() -> viewModel.refresh(character.id)}"
+        app:refreshing="@{viewModel.loading}">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/descriptionTextView"
+                        android:layout_width="@dimen/common_dimen_0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/common_dimen_16dp"
+                        android:layout_marginTop="@dimen/common_dimen_16dp"
+                        android:layout_marginEnd="@dimen/common_dimen_16dp"
+                        android:text="@{character.description.length() == 0 ? @string/character_detail_fragment_label_description_empty : character.description}"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Lorem ipsum" />
+
+                    <TextView
+                        android:id="@+id/labelComicsTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/character_detail_fragment_label_comics"
+                        app:layout_constraintEnd_toEndOf="@+id/totalComicsTextView"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="@+id/totalComicsTextView"
+                        app:layout_constraintTop_toBottomOf="@+id/totalComicsTextView" />
+
+                    <TextView
+                        android:id="@+id/labelSeriesTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/character_detail_fragment_label_series"
+                        app:layout_constraintEnd_toEndOf="@+id/totalSeriesTextView"
+                        app:layout_constraintStart_toStartOf="@+id/totalSeriesTextView"
+                        app:layout_constraintTop_toBottomOf="@+id/totalSeriesTextView" />
+
+                    <TextView
+                        android:id="@+id/labelStoriesTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/character_detail_fragment_label_stories"
+                        app:layout_constraintEnd_toEndOf="@+id/totalStoriesTextView"
+                        app:layout_constraintStart_toStartOf="@+id/totalStoriesTextView"
+                        app:layout_constraintTop_toBottomOf="@+id/totalStoriesTextView" />
+
+                    <TextView
+                        android:id="@+id/labelEventsTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/character_detail_fragment_label_events"
+                        app:layout_constraintEnd_toEndOf="@+id/totalEventsTextView"
+                        app:layout_constraintStart_toStartOf="@+id/totalEventsTextView"
+                        app:layout_constraintTop_toBottomOf="@+id/totalEventsTextView" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/leftGuideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="@dimen/common_dimen_16dp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/rightGuideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="@dimen/common_dimen_16dp" />
+
+                    <TextView
+                        android:id="@+id/totalComicsTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/common_dimen_16dp"
+                        android:text="@{IntExtensionsKt.toTotal(character.comicsTotal)}"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        app:layout_constraintEnd_toStartOf="@+id/centerGuideline"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+                        app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"
+                        tools:text="00" />
+
+                    <TextView
+                        android:id="@+id/totalSeriesTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{IntExtensionsKt.toTotal(character.seriesTotal)}"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+                        app:layout_constraintStart_toStartOf="@+id/centerGuideline"
+                        app:layout_constraintTop_toTopOf="@+id/totalComicsTextView"
+                        tools:text="00" />
+
+                    <TextView
+                        android:id="@+id/totalStoriesTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/common_dimen_16dp"
+                        android:text="@{IntExtensionsKt.toTotal(character.storiesTotal)}"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        app:layout_constraintEnd_toStartOf="@+id/centerGuideline"
+                        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+                        app:layout_constraintTop_toBottomOf="@+id/labelComicsTextView"
+                        tools:text="00" />
+
+                    <TextView
+                        android:id="@+id/totalEventsTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{IntExtensionsKt.toTotal(character.eventsTotal)}"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+                        app:layout_constraintStart_toStartOf="@+id/centerGuideline"
+                        app:layout_constraintTop_toTopOf="@+id/totalStoriesTextView"
+                        tools:text="00" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/detailFloatingActionButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/common_dimen_16dp"
+                        android:layout_marginBottom="@dimen/common_dimen_16dp"
+                        android:contentDescription="@string/app_name"
+                        android:onClick="@{() -> viewModel.onClick(`detail`)}"
+                        android:src="@drawable/detail"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/wikiFloatingActionButton"
+                        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+                        app:layout_constraintTop_toBottomOf="@+id/labelStoriesTextView" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/wikiFloatingActionButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/app_name"
+                        android:onClick="@{() -> viewModel.onClick(`wiki`)}"
+                        android:src="@drawable/wiki"
+                        app:layout_constraintEnd_toStartOf="@+id/comicFloatingActionButton"
+                        app:layout_constraintStart_toEndOf="@+id/detailFloatingActionButton"
+                        app:layout_constraintTop_toTopOf="@+id/detailFloatingActionButton" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/comicFloatingActionButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/app_name"
+                        android:onClick="@{() -> viewModel.onClick(`comiclink`)}"
+                        android:src="@drawable/link"
+                        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+                        app:layout_constraintStart_toEndOf="@+id/wikiFloatingActionButton"
+                        app:layout_constraintTop_toTopOf="@+id/wikiFloatingActionButton" />
+
+                    <View
+                        android:id="@+id/dividerView"
+                        android:layout_width="@dimen/common_dimen_1dp"
+                        android:layout_height="@dimen/common_dimen_0dp"
+                        android:background="?android:attr/listDivider"
+                        app:layout_constraintBottom_toBottomOf="@+id/labelStoriesTextView"
+                        app:layout_constraintEnd_toStartOf="@+id/centerGuideline"
+                        app:layout_constraintStart_toStartOf="@+id/centerGuideline"
+                        app:layout_constraintTop_toTopOf="@+id/totalComicsTextView" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/centerGuideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.5" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

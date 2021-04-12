@@ -1,0 +1,79 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.globant.marvelapp"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "BASE_URL", "\"https://gateway.marvel.com:443\""
+        buildConfigField "String", "API_KEY", API_KEY
+        buildConfigField "String", "PRIVATE_KEY", PRIVATE_KEY
+        buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    dataBinding {
+        enabled true
+    }
+}
+
+dependencies {
+
+    implementation kotlin_stdlib.values()
+    implementation core_android.values()
+    implementation legacy.values()
+    //Navigation
+    implementation navigation.values()
+    //Hilt
+    implementation hilt_android.values()
+    kapt hilt_kapt.values()
+    //Livedata
+    implementation lifecycle.values()
+    //Timber
+    implementation timber.values()
+    //Retrofit
+    implementation retrofit.values()
+    //Interceptor
+    implementation interceptor.values()
+    //Picasso
+    implementation picasso.values()
+    //Room
+    implementation room.values()
+    kapt room_kapt.values()
+    //Paging
+    implementation paging.values()
+    //Coroutines
+    implementation coroutines.values()
+    //Tests
+    testImplementation tests.values()
+
+    implementation project(path: ':data')
+    implementation project(path: ':domain')
+    implementation project(path: ':shared')
+}
