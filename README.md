@@ -10,7 +10,9 @@ In the menu you can sort by name ascending or descending from the list of charac
 
 ![Apr-07-2021 9-31-11 AM](https://user-images.githubusercontent.com/8774947/113883719-07f66e80-9784-11eb-9ba8-6062c7a4943b.gif)
 
-![Screen Shot 2021-04-07 at 9 34 27 AM](https://user-images.githubusercontent.com/8774947/113884329-7fc49900-9784-11eb-96af-ab0a7f121560.png)
+
+<img width="1241" alt="Screen Shot 2021-04-12 at 5 11 21 PM" src="https://user-images.githubusercontent.com/8774947/114469155-3922d480-9bb2-11eb-8ac1-284b01087e1f.png">
+
 
 The favorites screen shows the characters only marked as favorites, when you click on the heart image, it is removed from the favorites
 
